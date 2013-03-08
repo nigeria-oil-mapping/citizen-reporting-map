@@ -1,6 +1,6 @@
 # Nigeria Citizen Reporting Map 
 
-Citizen Reporting Map. Available at <>
+Citizen Reporting Map. Available at <http://nigeria-oil-mapping.github.com/citizen-reporting-map>
 
 Google Doc Spreadsheet: 
 <https://docs.google.com/a/developmentseed.org/spreadsheet/ccc?key=0AoiGgH1LJtE0dDNMblNhS2J6V0Y4QkRUU3Vya1kyckE#gid=0>
