@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset='utf-8'/>
+<title>Nigeria Oil Spill Citizen Reporting</title>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700|Share:400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="css/mapbox.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/bootstrap-datepicker.css">
+<link rel="stylesheet" href="css/form.css">
+</head>
+<body class="no-touch">
+<div id="masthead">
+	<div class="limiter">
+		<div class="title">
+			<h2><a href="http://developmentseed.org/nigeria-oil-mapping">Nigeria Oil Data</a></h2>
+		 	<span class="sub-title">Citizen Reporting</span>
+		</div>
+		<div id="nav">
+			<a class="enter-form active" href="form.html">Enter a spill incident</a>
+			<a class="view-data" href="index.html">View data</a>
+			<a class="issues" href="issues.html">Connect</a>
+		</div>
+	</div>
+</div>
+<div id='form-layout'>
+    <h1>Report a spill</h1>
+	<form class="form-horizontal">
+    	<p class="help-block error">All fields are required.</p>
+		<fieldset>
+			<legend>Where did it happen?</legend>
+			<div class="control-group">
+				<label class="control-label" for="entry_0">LGA</label>
+				<div class="controls">
+					<input type="text" class="input-xlarge" id="entry_0" name="entry.0.single">
+					<p class="help-block">Start typing to select an LGA</p>
+				</div>
+			</div>
+			<div id="map-control" class="control-group">
+				<div class="controls">
+    				<div id='map'></div>
+    				<p class="help-block">Click on the map to select a location</p>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="entry_1">Latitude</label>
+					<div class="controls">
+						<input type="text" class="input-xlarge" id="entry_1" name="entry.1.single">
+					</div>
+					<label class="control-label" for="entry_2">Longitude</label>
+					<div class="controls">
+						<input type="text" class="input-xlarge" id="entry_2" name="entry.2.single">
+					</div>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="entry_12">Local name</label>
+				<div class="controls">
+					<input type="text" class="input-xlarge" id="entry_12" name="entry.12.single">
+				</div>
+			</div>
+		</fieldset>
+
+		<fieldset>
+			<legend>When did it happen?</legend>
+			<div class="control-group">
+				<label class="control-label" for="entry_4">Date observed</label>
+				<div class="controls">
+					<input type="text" class="input-xlarge" name="entry.4.single" id="entry_4">
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="entry_6">Time observed</label>
+				<div class="controls">
+					<input type="text" class="input-xlarge" name="entry.6.single" id="entry_6">
+				</div>
+			</div>
+		</fieldset>
+
+		<fieldset>
+			<legend>Tell us the details</legend>
+			<div class="control-group">
+				<label class="control-label">New or existing spill?</label>
+				<div class="controls">
+                    <label class="radio"><input type="radio" name="entry.16.group" value="new" id="group_16_1">new</label>
+                    <label class="radio"><input type="radio" name="entry.16.group" value="existing" id="group_16_2">existing</label>
+				</div>
+			</div>			
+			<div class="control-group">
+				<label class="control-label" for="entry_10">Description</label>
+				<div class="controls">
+					<textarea class="input-xlarge" id="entry_10" name="entry.10.single"></textarea>
+					<p class="help-block">Describe the details of your observation</p>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="entry_8">Scale of spill</label>
+				<div class="controls">
+    				<label class="radio"><input type="radio" name="entry.8.group" value="0-10 barrels" id="group_8_1">0-10 barrels</label>
+                    <label class="radio"><input type="radio" name="entry.8.group" value="10-100 barrels" id="group_8_2">10-100 barrels</label>
+                    <label class="radio"><input type="radio" name="entry.8.group" value="100-1000 barrels" id="group_8_3">100-1000 barrels</label>
+                    <label class="radio"><input type="radio" name="entry.8.group" value="over 1000 barrels" id="group_8_4">over 1000 barrels</label>
+                    <label class="radio"><input type="radio" name="entry.8.group" value="__option__" id="other_option:8"> other: <input type="text" name="entry.8.group.other_option_"></label>
+				</div>
+			</div>		
+			<div class="control-group">
+				<label class="control-label">Area affected</label>
+				<div class="controls">
+    				<label class="radio"><input type="radio" name="entry.14.group" value="land" id="group_14_1">land</label>
+                    <label class="radio"><input type="radio" name="entry.14.group" value="freshwater" id="group_14_2">freshwater</label>
+                    <label class="radio"><input type="radio" name="entry.14.group" value="mangrove" id="group_14_3">mangrove</label>
+                    <label class="radio"><input type="radio" name="entry.14.group" value="coastline" id="group_14_4">coastline</label>
+                    <label class="radio"><input type="radio" name="entry.14.group" value="near shore" id="group_14_5">near shore</label>
+                    <label class="radio"><input type="radio" name="entry.14.group" value="offshore" id="group_14_6">offshore</label>
+                    <label class="radio"><input type="radio" name="entry.14.group" value="__option__" id="other_option:14"> other: <input type="text" name="entry.14.group.other_option_"></label>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="entry_21">Link to more info</label>
+				<div class="controls">
+					<input type="text" class="input-xlarge" name="entry.21.single" id="entry_21">
+				</div>
+			</div>			
+		</fieldset>
+		<fieldset>
+			<legend>Provide us with some pictures</legend>
+			<div class="control-group">
+				<label class="control-label" for="entry_17">Link to Image 1</label>
+				<div class="controls">
+					<input type="text" class="input-xlarge" name="entry.17.single" id="entry_17">
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="entry_18">Link to Image 2</label>
+				<div class="controls">
+					<input type="text" class="input-xlarge" name="entry.18.single" id="entry_18">
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="entry_19">Link to Image 3</label>
+				<div class="controls">
+					<input type="text" class="input-xlarge" name="entry.19.single" id="entry_19">
+				</div>
+			</div>									
+		</fieldset>
+
+		<div class="form-actions">
+            <input type="submit" class="btn btn-primary" data-loading-text="Submitting..." name="submit" value="Submit">
+        </div>
+
+<!--
+		<input type="hidden" name="entry.1.single" id="entry_1" value="">
+		<input type="hidden" name="entry.2.single" id="entry_2" value="">
+!-->		
+	</form>
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/mapbox.min.js"></script>
+<script src="js/mapbox-googledocs.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap-datepicker.js"></script>
+<script src="js/form.js"></script>
+</body>
+</html>

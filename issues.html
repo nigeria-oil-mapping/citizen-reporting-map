@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Nigeria Oil Data</title>
+  <meta name='viewport' content='width=980'>
+  <link rel="stylesheet" href="css/style.css" type="text/css" />
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700|Share:400,700' rel='stylesheet' type='text/css'>
+  <link rel='shortcut icon' href='/img/favicon.ico' type='image/x-icon' />
+  <script src="js/jquery.min.js" type="text/javascript"></script>
+  <script src="js/underscore-min.js"></script>
+</head>
+<body class="no-touch stories">
+<div id="masthead">
+    <div class="limiter">
+      <div class="title">
+        <h2><a href="http://developmentseed.org/nigeria-oil-mapping">Nigeria Oil Data</a></h2>
+        <span class="sub-title">Citizen Reporting</span>
+      </div>
+      <div id="nav">
+        <a class="enter-form" href="form.html">Enter a spill incident</a>
+        <a class="view-data" href="index.html">View data</a>
+        <a class="issues active" href="#">Connect</a>
+      </div>
+    </div>
+  </div>
+
+<img class='about-background' src='img/about.png'/>
+<div id='issues'>
+    <div class='limiter'>
+        <div id='first' class='story-panel'>
+            <div id='first-text' class='story-text'>
+                <h1>Connect with Partner Groups</h1>
+                <h2><a href="">Stakeholder Democracy Network</a></h2>
+                <p>Stakeholder Democracy Network (SDN) works to empower those that have been worst affected by the activities of extractive industries, to help them to get a better deal.</p>
+                <h2><a href="http://www.eraction.org">Environmental Rights Action/Friends of the Earth</a></h2>
+                <p>Environmental Rights Action/Friends of the Earth, Nigeria is a Nigerian advocacy  group dedicated to the defence of the Human ecosystem in terms of human rights. ERA/FoEN is the Nigerian chapter of the Friends of the Earth International (FoEI). ERA is also the coordinating NGO for the Oilwatch International as well as the host of the secretariat of the Africa Tobacco Control Regional Initiative (ATCRI). ERA is also the coordinating NGO for the Nigerian Tobacco Control Alliance (NTCA). <a class="line-link" href="http://www.eraction.org/component/eracontent/?id=5&view=category">Read more</a> in their field reports.</p>
+                <h2><a href="http://www.nigerdeltawatch.org/">Niger Delta Watch</a></h2>
+                <p>Niger Delta Watch aims to use existing networks of NGOs, Civil Society Groups and communities/individuals themselves to submit reports. It is accessible to anyone with a mobile phone making it possible for remote communities to inform us of what is happening in their area by sending text messages.</p>
+                <h2><a href="http://oilspillwatch.org/">OilSpillWitness</a></h2>
+                <p>OilSpillWitness is a Project of the FOSTER/DFID to monitor and report on the Oil Spills in the Niger Delta. The Project is jointly carried out by WANGONeT, SDN, and NACGOND. The Project also integrates with the UNEP Report carried out in OgoniLand.</p>
+            </div>
+        </div>
+<!--        <div id='second' class='story-panel'>
+            <div id='second-text' class='story-text'>
+                <h2>Niger Delta Watch</h2>
+                <p>Niger Delta Watch aims to use existing networks of NGOs, Civil Society Groups and communities/individuals themselves to submit reports. It is accessible to anyone with a mobile phone making it possible for remote communities to inform us of what is happening in their area by sending text messages.</p>
+            </div>
+        </div>
+        <div id='third' class='story-panel'>
+            <div id='third-text' class='story-text'>
+                <h2>OilSpillWitness</h2>
+                <p>OilSpillWitness is a Project of the FOSTER/DFID to monitor and report on the Oil Spills in the Niger Delta. The Project is jointly carried out by WANGONeT, SDN, and NACGOND. The Project also integrates with the UNEP Report carried out in OgoniLand.</p>
+            </div>
+        </div> !-->
+        <div id='fourth' class='news-panel'>
+            <div id='fourth-text' class='story-text'>
+              <h1>Read the latest News Articles</h1>
+              <div id='news-feed'></div>
+              <div class='news-attribution'><a href="https://news.google.com/news/search?oe=utf8&ie=utf8&source=uds&q=niger+delta+oil+spills&hl=en&start=0">Articles retrieved from Google News.</a></div>
+            </div>
+        </div>
+        <div id='photo-attribution' class='small-text'>Background photo by <a href='http://www.flickr.com/photos/terry_wha/1170646235/' target='_blank'>Terry Whalebone</a> under <a href='http://creativecommons.org/licenses/by/2.0/deed.en' target='_blank'>CC BY 2.0</a></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+var url="https://ajax.googleapis.com/ajax/services/search/news?v=1.0&q=niger%20delta%20oil%20spills&callback=?"
+
+$.getJSON(url, function(data) {
+  var items = [];
+
+console.log(data.responseData.results);
+
+  $.each(data.responseData.results, function(i,item){
+      items.push(
+        '<div class="news-item"><div class="news-date">' + item.publishedDate.slice(0,- 15) + '</div><div class="news-title"><a href="' + item.unescapedUrl + '">' + item.titleNoFormatting.replace("/","") + '</a></div><div class="news-author">' + item.publisher + '</div><div class="news-content">' + item.content + '</div></div>'
+        );
+  });
+
+  console.log(items);
+  
+  $('<div/>', {html: items.join('')}).appendTo("#news-feed");
+
+
+});
+
+
+
+</script>
+
+
+</body>
+</html>
